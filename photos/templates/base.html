@@ -1,0 +1,39 @@
+{% load bootstrap3 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title> My portfolio- {{title}}</title>
+  {% else %}
+    <title> My portfolio</title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    {% block content %} <h1 class='text-center' id="gallery">My Gallery</h1> {%endblock%}
+</body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
+  #gallery{
+      font-family: 'Great Vibes', cursive;
+      font-size: 150px;
+  }
+  body{
+    background-image: url("https://images.pexels.com/photos/459335/pexels-photo-459335.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-size:cover;
+    background-attachment: fixed;
+  }
+</style>
+
+</html>
