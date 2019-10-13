@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1> Welcome to my gallery</h1>
+
+
+
+<div class="container">
+    <div class="row">
+        <h2>{{message}}</h2>
+    </div>
+  
+    <div class="masonry text-center">
+      {% for image in images %}
+      <div class="item animated zoomIn">
+        <a href="{{image.imagePath.url}}"  data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]' data-caption='<a href="{{image.imagePath.url}}"><h6>{{image.imageName}}</h6></a>
+                                                                      <p>{{image.imageDescription}}</p>
+                                                                      <p>Location: {{image.image_location}} / Category: {{image.image_category}}</p>
+                                                                      <button class="rounded btn-primary" onclick=copyLink("{{image.id}}-url") >📋Copy Link</button>'>
+  
+          <img class="rounded image" src="{{image.imagePath.url}}" alt="{{image.imageName}}">
+        </a>
+        <input type="text" id="{{image.id}}-url" class="d-none form-control input-sm " value="https://gallery-unchained.herokuapp.com{{image.imagePath.url}}">
+        <img class="img-fluid rounded image" src="{{image.imagePath.url}}" alt="{{image.imageName}}">
+        <div class="description">
+          <h6 class="text" >{{image.imageName}}</h6>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+    
+  {% endblock %}
