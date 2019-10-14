@@ -1,33 +1,78 @@
 {% extends "base.html" %}
+{% block content%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-{% block page_content %}
-<h1> Welcome to my gallery</h1>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+<h1 style="text-align: center;" id="three"> Welcome to my gallery</h1><hr id="line"style="background:black;">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Amaranth&display=swap');
+   #three{
+       font-family: 'Great Vibes', cursive;
+       font-size: 50px;
+       color:rgb(47, 85, 9);
+   }
+   .shoes{
+     color: rgb(59, 4, 4);
+     font-family: 'Amaranth', sans-serif;
+     font-size: 15px;
+     
+   }
+   #line{
+     height: 10px;
+     width: 370px;
+   }
+ 
+  </style>
 
 <div class="container">
     <div class="row">
         <h2>{{message}}</h2>
     </div>
-  
-    <div class="masonry text-center">
+
+  <div class="row" id="rower1" >
       {% for image in images %}
-      <div class="item animated zoomIn">
-        <a href="{{image.imagePath.url}}"  data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]' data-caption='<a href="{{image.imagePath.url}}"><h6>{{image.imageName}}</h6></a>
-                                                                      <p>{{image.imageDescription}}</p>
-                                                                      <p>Location: {{image.image_location}} / Category: {{image.image_category}}</p>
-                                                                      <button class="rounded btn-primary" onclick=copyLink("{{image.id}}-url") >📋Copy Link</button>'>
-  
-          <img class="rounded image" src="{{image.imagePath.url}}" alt="{{image.imageName}}">
-        </a>
-        <input type="text" id="{{image.id}}-url" class="d-none form-control input-sm " value="https://gallery-unchained.herokuapp.com{{image.imagePath.url}}">
-        <img class="img-fluid rounded image" src="{{image.imagePath.url}}" alt="{{image.imageName}}">
-        <div class="description">
-          <h6 class="text" >{{image.imageName}}</h6>
+      <div class="col-md-4">
+         <p style="font-size: 20px;padding-left:100px;color:rgb(190, 10, 10);font-family: 'Sacramento', cursive">
+          {{image.imageName}}</p>
+
+        <img data-toggle="modal" data-target="#{{image.id}}" style="margin-left: 50px;margin-bottom: 50px" src="{{image.imagePath.url}}"
+          class="img-responsive" alt="Image">
+        
+        <!-- Modal  -->
+        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true" style="padding-right: 500px">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Philosopher', sans-serif;font-size: 15px">{{image.imageName}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img style="border-radius: 100px" src="{{image.imagePath.url}}" alt="image"> <br><br>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image description:{{image.imageDescription}}</p>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image category:{{image.image_category}}</p>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image location:{{image.image_location}}</p>
+                <input type="text" value="http://127.0.0.1:8000{{image.imagePath.url}}" id="myInput" style="font-family: 'Sacramento', cursive;font-size: 20px">
+                <br>
+                <button class="rounded btn-primary" onclick=copyImageLink()>:clipboard:Copy Image Link</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Sacramento', cursive;font-size: 20px">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      {% endfor %}
+        {% endfor%}
     </div>
-  </div>
-    
-  {% endblock %}
+  {%endblock%}
