@@ -4,10 +4,10 @@ from .models import Location,Category,Image
 
 
 # Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
+# def welcome(request):
+#     return render(request, 'welcome.html')
 
-def index(request):
+def welcome(request):
     images = Image.objects.all()
     locations = Location.objects.all()
     categories = Category.objects.all()
