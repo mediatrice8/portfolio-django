@@ -58,7 +58,7 @@ class Category(models.Model):
         return category
 
     def __str__(self):
-        return self.name
+        return self.categoryName
 
     
 
@@ -94,8 +94,8 @@ class Image(models.Model):
     
     
     @classmethod
-    def search_by_category(cls,image_category):
-        images = Image.objects.filter(image_category__name__icontains=image_category)
+    def search_by_category(cls,search_term):
+        images = Image.objects.filter(categoryName__categoryName__contains=search_term)
         return images
     
     @classmethod
