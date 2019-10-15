@@ -21,9 +21,9 @@ def search_results(request):
     categories = Category.objects.all()
     title = 'Search'
 
-    if 'pictures' in request.GET and request.GET["pictures"]:
-        search_term = request.GET.get("pictures")
-        searched_images = Image.search_category(search_term)
+    if 'gallery' in request.GET and request.GET["gallery"]:
+        search_term = request.GET.get("gallery")
+        searched_images = Image.search_by_category(search_term)
         message = f"Results for: {search_term}"
 
         return render(request, 'welcome.html',{"message":message,"images": searched_images,'locations':locations,'categories':categories, 'title':title})
@@ -35,7 +35,7 @@ def categoryPage(request,category):
     locations = Location.objects.all()
     categories = Category.objects.all()
     title = f"{category}"
-    category_results = Image.search_category(category)
+    category_results = Image.search_by_category(category)
     return render(request,'welcome.html',{'images':category_results,'locations':locations,'categories':categories, 'title':title})
 
 def locationPage(request,location):
