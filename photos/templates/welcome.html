@@ -1,10 +1,11 @@
-{% extends "base.html" %}
-{% block content%}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% extends "base.html" %}
+{% block content%}
+
 
 <h1 style="text-align: center;" id="three"> Welcome to my gallery</h1><hr id="line"style="background:black;">
 <div class="five">
@@ -41,11 +42,11 @@
          <p style="font-size: 20px;padding-left:100px;color:rgb(190, 10, 10);font-family: 'Sacramento', cursive">
           {{gallery.imageName}}</p>
 
-        <img data-toggle="modal" data-target="#{{image.id}}" style="margin-left: 50px;margin-bottom: 50px" src="{{gallery.imagePath.url}}"
+        <img data-toggle="modal" data-target="#{{gallery.id}}" style="margin-left: 50px;margin-bottom: 50px" src="{{gallery.imagePath.url}}"
           class="img-responsive" alt="Image">
         
         <!-- Modal  -->
-        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="{{gallery.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true" style="padding-right: 500px">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -70,6 +71,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Sacramento', cursive;font-size: 20px">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Sacramento', cursive;font-size: 20px">copy</button>
               </div>
             </div>
           </div>
