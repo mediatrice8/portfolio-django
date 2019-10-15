@@ -7,6 +7,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <h1 style="text-align: center;" id="three"> Welcome to my gallery</h1><hr id="line"style="background:black;">
+<div class="five">
+<img src="https://images.pexels.com/photos/459335/pexels-photo-459335.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="image" height=700; width="1500">
+</div>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Amaranth&display=swap');
@@ -25,21 +28,20 @@
      height: 10px;
      width: 370px;
    }
- 
   </style>
 
-<div class="container">
+<div class="container" id="five">
     <div class="row">
         <h2>{{message}}</h2>
     </div>
 
   <div class="row" id="rower1" >
-      {% for image in images %}
+      {% for gallery in images %}
       <div class="col-md-4">
          <p style="font-size: 20px;padding-left:100px;color:rgb(190, 10, 10);font-family: 'Sacramento', cursive">
-          {{image.imageName}}</p>
+          {{gallery.imageName}}</p>
 
-        <img data-toggle="modal" data-target="#{{image.id}}" style="margin-left: 50px;margin-bottom: 50px" src="{{image.imagePath.url}}"
+        <img data-toggle="modal" data-target="#{{image.id}}" style="margin-left: 50px;margin-bottom: 50px" src="{{gallery.imagePath.url}}"
           class="img-responsive" alt="Image">
         
         <!-- Modal  -->
@@ -48,21 +50,21 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Philosopher', sans-serif;font-size: 15px">{{image.imageName}}
+                <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Philosopher', sans-serif;font-size: 15px">{{gallery.imageName}}
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <img style="border-radius: 100px" src="{{image.imagePath.url}}" alt="image"> <br><br>
+                <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery"> <br><br>
                 <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image description:{{image.imageDescription}}</p>
+                  image description:{{gallery.imageDescription}}</p>
                 <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image category:{{image.image_category}}</p>
+                  image category:{{gallery.image_category}}</p>
                 <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image location:{{image.image_location}}</p>
-                <input type="text" value="http://127.0.0.1:8000{{image.imagePath.url}}" id="myInput" style="font-family: 'Sacramento', cursive;font-size: 20px">
+                  image location:{{gallery.image_location}}</p>
+                <input type="text" value="http://127.0.0.1:8000{{gallery.imagePath.url}}" id="myInput" style="font-family: 'Sacramento', cursive;font-size: 20px">
                 <br>
                 <button class="rounded btn-primary" onclick=copyImageLink()>:clipboard:Copy Image Link</button>
               </div>
