@@ -21,6 +21,30 @@
     {% include "navbar.html" %}
 
     {% block content %} <h1 class='text-center' id="gallery">My Gallery</h1> {%endblock%}
+    <div class="footer">
+      <div class="row">
+        <div class="col-md-3">
+            <a href="#">Gallery</a>&nbsp;&nbsp;
+              <a href="#">Admin</a>
+
+        </div>
+        <div class="col-md-3" id="med">
+         <p>Contact:+250785610704</p>
+         <p>Email:+kampiremediatrice@gmail.com</p> 
+         <p class="footer-company-name">Moringa &copy; 2019</p> 
+         <p><span>CHMs former KIE</span> Kigali, Rwanda</p>
+        </div>
+        <div class="col-md-3">
+ 
+            <img src="https://img.icons8.com/officel/2x/facebook-new.png" height="50"><i class="fa fa-facebook"></i></a>
+            <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_color-512.png" height="50"><i class="fa fa-twitter"></i></a>
+            <img src="https://cdn.imgbin.com/6/24/4/imgbin-github-icon-github-blue-animal-logo-G4ueNqLpgBrWiwMciZ1N4LdCS.jpg" height="50"><i class="fa fa-github"></i></a>
+            <img src="https://png.pngtree.com/png-clipart/20190515/original/pngtree-linkedin-color-icon-png-image_3547785.jpg" height="50"><i class="fa fa-linkdin"></i></a>
+            
+         
+            </div>
+      </div>
+    </div>
 
 </body>
 
@@ -30,7 +54,20 @@
       font-family: 'Great Vibes', cursive;
       font-size: 150px;
   }
- 
+  #med{
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    color:rgba(247, 245, 246, 0.897)
+  }
+  .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:black;
+   color: white;
+   text-align: center;
+} 
 </style>
 
 </html>
