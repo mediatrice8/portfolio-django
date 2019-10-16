@@ -3,6 +3,7 @@ from django.http import HttpResponse,Http404
 from .models import Location,Category,Image
 
 
+
 # Create your views here.
 # def welcome(request):
 #     return render(request, 'welcome.html')
