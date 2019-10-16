@@ -98,10 +98,11 @@ class Image(models.Model):
         images = Image.objects.filter(image_category__categoryName__contains=search_term)
         return images
     
+    
     @classmethod
-    def filter_by_location(cls, image_location):
-        images_location = cls.objects.filter(image_location__id=image_location)
-        return images_location
+    def filter_location(cls,get_location_id):
+        filter_loc = cls.objects.filter(image_location__location_name__contains=location)
+        return filter_loc
     
     class Meta:
         ordering = ['imageName']
