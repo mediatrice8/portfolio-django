@@ -11,7 +11,7 @@
 <div class="row">
     {% if images %}
       {% for gallery in images %}
-        <div class="col-sm-6 col-md-3">
+        <div class="col-md-3">
             <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200" style="border-radius: 50%;"> <br><br>
                 <p style="font-size: 20px;font-family: 'Sacramento', cursive">
                   image description:{{gallery.imageDescription}}</p>
