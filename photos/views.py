@@ -27,11 +27,11 @@ def search_results(request):
         searched_images = Image.search_by_category(search_term)
         message = f"Results for: {search_term}"
 
-        return render(request, 'welcome.html',{"message":message,"images": searched_images,'locations':locations,'categories':categories, 'title':title})
+        return render(request, 'search.html',{"message":message,"images": searched_images,'locations':locations,'categories':categories, 'title':title})
 
     else:
         message = "You haven't searched for any things."
-        return render(request, 'welcome.html' ,{"message":message})
+        return render(request, 'search.html' ,{"message":message})
 def categoryPage(request,category):
     locations = Location.objects.all()
     categories = Category.objects.all()
