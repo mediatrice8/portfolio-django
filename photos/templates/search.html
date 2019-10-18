@@ -11,50 +11,14 @@
 <div class="row">
     {% if images %}
     {% for gallery in images %}
-    <div class="modal fade" id="{{gallery.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" style="padding-right: 500px">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"
-                        style="font-family: 'Philosopher', sans-serif;font-size: 15px">{{gallery.imageName}}
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200"
+
+    <div class="col-sm-6 col-md-3">
+        
+        <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200"
                         style="border-radius: 50%;"> <br><br>
-                    <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                        image description:{{gallery.imageDescription}}</p>
-                    <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                        image category:{{gallery.image_category}}</p>
-                    <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                        image location:{{gallery.image_location}}</p>
-
-                    <input class="form-control input-lg" type="text"
-                        value="https://kedia12.herokuapp.com{{gallery.imagePath.url}}" id="{{gallery.id}}-url"
-                        style="color: black;font-family: 'Acme', sans-serif;">
-
-                    <button class="btn btn-dark" onclick="copyUrl('{{gallery.id}}-url')"
-                        style="color: black;font-family: 'Acme', sans-serif;">Copy</button>
-
-                </div>
-                <script>
-                    function copyUrl(element) {
-                        var myVar = document.getElementById(element);
-                        myVar.select();
-                        document.execCommand('copy');
-                        alert("Copied the link of image: " + myVar.value);
-                    }
-
-                </script>
-                  {% endfor %}
-                  {% endif %}
-            </div>
-        </div>
-
     </div>
-    {% endblock %}
+    {% endfor %}
+    {% endif %}
+    
+ {% endblock %}
 </div>
