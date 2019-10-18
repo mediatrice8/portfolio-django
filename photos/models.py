@@ -100,9 +100,9 @@ class Image(models.Model):
     
     
     @classmethod
-    def filter_location(cls,get_location_id):
-        filter_loc = cls.objects.filter(image_location__location_name__contains=location)
-        return filter_loc
+    def filter_location(cls,location):
+        loc_filter = cls.objects.filter(image_location__location_name__contains=location)
+        return loc_filter
     
     class Meta:
         ordering = ['imageName']

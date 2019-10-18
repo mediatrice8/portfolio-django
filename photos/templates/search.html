@@ -11,15 +11,20 @@
 <div class="row">
     {% if images %}
       {% for gallery in images %}
-        <div class="col-md-3">
-            <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200" style="border-radius: 50%;"> <br><br>
-                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image description:{{gallery.imageDescription}}</p>
-                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image category:{{gallery.image_category}}</p>
-                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
-                  image location:{{gallery.image_location}}</p>
+      <div class="modal-body">
+        <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200" style="border-radius: 50%;"> <br><br>
+        <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+            image description:{{gallery.imageDescription}}</p>
+          <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+            image category:{{gallery.image_category}}</p>
+          <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+            image location:{{gallery.image_location}}</p>
 
+          <input class="form-control input-lg" type="text" value="https://kedia12.herokuapp.com{{gallery.imagePath.url}}"
+          id="{{gallery.id}}-url" style="color: black;font-family: 'Acme', sans-serif;">
+
+          <button class="btn btn-dark" onclick="copyUrl('{{gallery.id}}-url')"
+          style="color: black;font-family: 'Acme', sans-serif;">Copy</button>
         </div>
       {% endfor %}
     {% endif %}
