@@ -12,7 +12,14 @@
     {% if images %}
       {% for gallery in images %}
         <div class="col-sm-6 col-md-3">
-            <h1>{{gallery.title}}</h1>
+            <img style="border-radius: 100px" src="{{gallery.imagePath.url}}" alt="gallery" height="200" style="border-radius: 50%;"> <br><br>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image description:{{gallery.imageDescription}}</p>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image category:{{gallery.image_category}}</p>
+                <p style="font-size: 20px;font-family: 'Sacramento', cursive">
+                  image location:{{gallery.image_location}}</p>
+
         </div>
       {% endfor %}
     {% endif %}
